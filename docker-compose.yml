@@ -1,0 +1,22 @@
+version: "3.1"
+
+services:
+  db:
+    image: postgres:latest
+    restart: always
+    environment:
+      POSTGRES_USER: dbadmin
+      POSTGRES_PASSWORD: qrtyac11
+      POSTGRES_DB: base_db
+    ports:
+      - "5432:5432"
+
+  pgadmin:
+    container_name: pgadmin4_container
+    image: dpage/pgadmin4:latest
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: dbadmin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: qrtyac11
+    ports:
+      - "5050:80"
