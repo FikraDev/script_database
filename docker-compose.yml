@@ -6,10 +6,13 @@ services:
     restart: always
     environment:
       POSTGRES_USER: dbadmin
-      POSTGRES_PASSWORD: qrtyac11
+      POSTGRES_PASSWORD: *****
       POSTGRES_DB: base_db
     ports:
       - "5432:5432"
+    
+  volumes:
+      - /your/mount_pt:/var/lib/postgresql/data
 
   pgadmin:
     container_name: pgadmin4_container
@@ -17,6 +20,6 @@ services:
     restart: always
     environment:
       PGADMIN_DEFAULT_EMAIL: dbadmin@admin.com
-      PGADMIN_DEFAULT_PASSWORD: qrtyac11
+      PGADMIN_DEFAULT_PASSWORD: ****
     ports:
       - "5050:80"
